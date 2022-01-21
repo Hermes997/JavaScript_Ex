@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lab #9</title>
+</head>
+<body>
+
+<h2>Phase4</h2>
+<form method="post" action="response.jsp">
+<h4>Query 1: Related URL</h4>
+Stock name : <input type="text" name="Find_URL_Q1"><br>
+
+<h4>Query 2: Search for user satisfying the term</h4>
+start date (yyyy-MM-dd): <input type="text" name="Find_Transaction_start_date_Q2"><br>
+end date (yyyy-MM-dd): <input type="text" name="Find_Transaction_end_date_Q2"><br>
+User id: <input type="text" name="Find_Transaction_user_id_Q2"><br>
+
+<h4>Query 3: Search for user's amount</h4>
+User_id : <input type="text" name="Find_User_amount_Q3"><br>
+
+<h4>Query 4: Search for high fluctuation stock:</h4>
+start date(yyyyMMdd): <input type="text" name="Find_high_fluctuation_start_date_Q4"><br>
+fluctuation rate(1.00 = 0%, 1.02 = +2%): <input type="text" name="Find_high_fluctuation_rate_Q4"><br>
+
+<input type="reset" name="Reset" value="Reset">
+<input type="submit" name="Submit" value="Summit">
+</form>
+</body>
+</html>
