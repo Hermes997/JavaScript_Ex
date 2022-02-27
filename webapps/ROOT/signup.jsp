@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
     <title>Signin Template · Bootstrap v5.0</title>
-    <script src="jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -17,23 +17,28 @@
   <body class="text-center">
  
  
+ 
+
+
 <main class="form-signin">
-    <form>
+    <div>
+    <form action="signup_action.jsp">
         <h1 class="h3 mb-3 fw-normal">Sign up page</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
-        <input type="email" id="email_id_su" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="userID" name="userID" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="visually-hidden">Password</label>
-        <input type="password" id="inputPassword_su" class="form-control" placeholder="Password" required>
-        <label for="inputTelephone" class="visually-hidden">Telephone</label>
-        <input type="tel" id="inputTelephone_su" class="form-control" placeholder="Telephone" required>
+        <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="Password" required>
+        <label for="inputNickname" class="visually-hidden">Nickname</label>
+        <input type="text" id="userNickname" name="userNickname" class="form-control" placeholder="Nickname" required>
         <label for="inputBirthday" class="visually-hidden">Birthday</label>
-        <input type="date" id="inputBirthday_su" class="form-control" placeholder="Birthday" required>
+        <input type="text" id="userDate" name="userDate" class="form-control" placeholder="Birthday" required>
         <p></p>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
         <p></p>
         <button class="w-100 btn btn-lg btn-info" type="submit" onclick="window.location.href='home.jsp'">Back to Home</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
     </form>
+    </div>
 </main>
  
  
