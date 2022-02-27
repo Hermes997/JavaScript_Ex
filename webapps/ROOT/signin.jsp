@@ -19,7 +19,7 @@
   <body class="text-center">
  
 <main class="form-signin">
-    <form>
+    <div>
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
         <input type="email" id="email_id" class="form-control" placeholder="Email address" required autofocus>
@@ -30,13 +30,13 @@
             <input type="checkbox" value="remember-me"> Remember me
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="window.location.href='home.jsp'">Sign in</button>
         <p></p>
         <button class="w-100 btn btn-lg btn-secondary" type="submit" onclick="window.location.href='signup.jsp'">Sign up</button>
         <p></p>
         <button class="w-100 btn btn-lg btn-info" type="submit" onclick="window.location.href='home.jsp'">Back to Home</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-    </form>
+    </div>
 </main>
  
  

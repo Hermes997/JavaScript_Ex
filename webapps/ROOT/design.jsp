@@ -1,41 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <html>
 <head>
-    <title>회원 목록</title>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+<title>회원 목록</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
-
 <body>
-    <div class="row">
-        <div class="col-sm-4" style="background-color: red;">
-            A
-        </div>
-        <div class="col-sm-4" style="background-color: yellow;">
-            B
-        </div>
-        <div class="col-sm-4" style="background-color: blue;">
-            C
-        </div>
-    </div>
+      MEMBER 테이블의 내용
+      <table width = "100%" border = "1">
+      <tr>
+            <td>아이디</td>
+            <td>비번</td>
+            <td>닉네임</td>
+            <td>생일</td>
+      </tr>
 
-<span class="badge bg-primary">Primary</span>
-<span class="badge bg-secondary">Secondary</span>
-<span class="badge bg-success">Success</span>
-<span class="badge bg-danger">Danger</span>
-<span class="badge bg-warning text-dark">Warning</span>
-<span class="badge bg-info text-dark">Info</span>
-<span class="badge bg-light text-dark">Light</span>
-<span class="badge bg-dark">Dark</span>
-
+<%
+      // 1. JDBC 드라이버 로딩
+      Class.forName("org.mariadb.jdbc.Driver");
+  
+      Connection conn = null; // DBMS와 Java연결객체
+      Statement stmt = null; // SQL구문을 실행
+      ResultSet rs = null; // SQL구문의 실행결과를 저장
+  
+      try
+      {
+        String jdbcUrl = "jdbc:mariadb://218.158.10.116:3306/mysql";
+        String dbId = "cus";
+        String dbPass = "password";
+   
+        String query = "select * from address";
+   
+            // 2. 데이터베이스 커넥션 생성
+        conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
+   
+            // 3. Statement 생성
+        stmt = conn.createStatement();
+   
+            // 4. 쿼리 실행
+        rs = stmt.executeQuery(query);
+   
+            // 5. 쿼리 실행 결과 출력
+        while(rs.next())
+            {
+%>
+      <tr>
+            <td><%= rs.getString("userID") %></td>
+            <td><%= rs.getString("userPassword") %></td>
+            <td><%= rs.getString("userNickname") %></td>
+            <td><%= rs.getString("userDate") %></td>
+      </tr>
+<%
+            }
+      }catch(SQLException ex){
+            out.println(ex.getMessage());
+            ex.printStackTrace();
+      }finally{
+            // 6. 사용한 Statement 종료
+            if(rs != null) try { rs.close(); } catch(SQLException ex) {}
+            if(stmt != null) try { stmt.close(); } catch(SQLException ex) {}
+   
+            // 7. 커넥션 종료
+            if(conn != null) try { conn.close(); } catch(SQLException ex) {}
+      }
+%>
+      </table>
 </body>
-
-
 </html>
