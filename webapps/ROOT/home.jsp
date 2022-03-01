@@ -1,4 +1,8 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.*"%>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,82 +10,127 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Blog Template · Bootstrap v4.6</title>
-
+    <title>Envir_Astro</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
-
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-
-
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+      div.backgroundText {
+        position: absolute;
+        z-index:1;
+        top:25%;
+        left:50%; 
+        transform: translate(-50%);
+        font-style: italic;
+        color: white;
+      } 
+      
     </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-color: rgb(213,220,255);">
     
+    <%
+        Connection con = null; // DBMS와 Java연결객체
+        Statement stmt = null; // SQL구문을 실행
+        ResultSet rs = null; // SQL구문의 실행결과를 저장
+        PreparedStatement pst = null;
+
+        Class.forName("org.mariadb.jdbc.Driver");
+        try { 
+        String dbURL = "jdbc:mariadb://218.158.10.116:3306/mysql"; 
+        String dbID = "cus"; 
+        String dbPassword = "password"; 
+
+        con = DriverManager.getConnection(dbURL, dbID, dbPassword);
+        } catch (Exception e) { 
+            e.printStackTrace();
+        }
+
+        String userID = (String) session.getAttribute("userID");
+        String userPassword = (String) session.getAttribute("userPassword");
+        String userNickname = (String) session.getAttribute("userNickname");
+        String userDate = (String) session.getAttribute("userDate");
+        PrintWriter script = response.getWriter();
+    %>
+
 <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-        <a class="text-muted" href="#">Subscribe</a>
+      <div class="col-1 pt-1">
+        <a class="text-muted" href="#"> English </a>
+
       </div>
-      <div class="col-4 text-center">
+
+      <div class="col-1 pt-1">
+        <a class="text-muted" href="#"> Korean </a>
+
+      </div>
+
+      <div class="col-1 pt-1">
+        <a class="text-muted" href="#"> Japanese </a>
+
+      </div>
+      <div class="col-6 text-center">
         <a class="blog-header-logo text-dark" href="#">Envir_Astro</a>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-primary" href="signin.jsp">Sign in</a>
-        &emsp;&emsp;
-        <a class="btn btn-sm btn-outline-secondary" href="signup.jsp">Sign up</a>
+      <div class="col-3 d-flex justify-content-end align-items-center">
+        <%
+          try {
+            
+            if(userID != null) {
+        %>
+
+
+        <%=
+              "<a class=\"btn btn-sm btn-outline-success\" href=\"#\"> " + userNickname + " </a>" +
+              "\n&emsp;&emsp;" + 
+              "<a class=\"btn btn-sm btn-outline-secondary\" href=\"logout_action.jsp\"> " + "Log out" + " </a>"
+        %>
+
+        <%
+            } else {
+
+        %>
+
+        <%=
+              "<a class=\"btn btn-sm btn-outline-primary\" href=\"signin.jsp\"> Sign in </a>" + 
+              "\n&emsp;&emsp;" + 
+              "\n<a class=\"btn btn-sm btn-outline-secondary\" href=\"signup.jsp\"> Sign up </a>"
+        %>
+
+        <%
+            }
+          } catch(Exception e) {
+            e.printStackTrace();
+          }
+
+
+        %>
+         
+        
+        
       </div>
     </div>
   </header>
 
+
   <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="#">World</a>
-      <a class="p-2 text-muted" href="#">U.S.</a>
-      <a class="p-2 text-muted" href="#">Technology</a>
-      <a class="p-2 text-muted" href="#">Design</a>
-      <a class="p-2 text-muted" href="#">Culture</a>
-      <a class="p-2 text-muted" href="#">Business</a>
-      <a class="p-2 text-muted" href="#">Politics</a>
-      <a class="p-2 text-muted" href="#">Opinion</a>
-      <a class="p-2 text-muted" href="#">Science</a>
-      <a class="p-2 text-muted" href="#">Health</a>
-      <a class="p-2 text-muted" href="#">Style</a>
-      <a class="p-2 text-muted" href="#">Travel</a>
+    <nav class="nav d-flex justify-content-between rounded" style="background-color :#5A70FF">
+      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
+      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
+      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
     </nav>
   </div>
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-    </div>
+
+
+
+  <div>
+    <div class="backgroundText"> <h2>Save earth, Save you</h2> </div>
+    <img class="img-fluid rounded" src="background.jpg" alt="배경">
   </div>
 
   <div class="row mb-2">

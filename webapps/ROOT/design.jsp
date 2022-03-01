@@ -7,7 +7,7 @@
 <title>회원 목록</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
-<body>
+<body style="background-color: rgb(213,220,255);">
       MEMBER 테이블의 내용
       <table width = "100%" border = "1">
       <tr>
