@@ -12,26 +12,51 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>Envir_Astro</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
     <style>
+      section {
+        position: relative;
+      }
+
       div.backgroundText {
         position: absolute;
         z-index:1;
         top:25%;
-        left:50%; 
+        left:50%;
+        font-size:2vw;
         transform: translate(-50%);
         font-style: italic;
         color: white;
       } 
-      
+
+      .asdf {
+        background-color :"#112DBA";
+      }
+
+      .asdf:hover .earthIcon{
+        display: block;
+      }
+
+
+      .earthIcon {
+        position: absolute;
+        z-index:2;
+        top:50%;
+        left:50%;
+        transform: translate(-50%);
+        display: none;
+      }
+
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
   </head>
-  <body style="background-color: rgb(213,220,255);">
-    
+  <body>
     <%
         Connection con = null; // DBMS와 Java연결객체
         Statement stmt = null; // SQL구문을 실행
@@ -56,11 +81,12 @@
         PrintWriter script = response.getWriter();
     %>
 
+
 <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-1 pt-1">
-        <a class="text-muted" href="#"> English </a>
+        <a class="text-muted" href="#"> English</a>
 
       </div>
 
@@ -109,7 +135,8 @@
 
 
         %>
-         
+
+        
         
         
       </div>
@@ -117,21 +144,25 @@
   </header>
 
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between rounded" style="background-color :#5A70FF">
-      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
-      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
-      <a class="pl-5 pr-5 pt-2 pb-2 text-light" href="#">World</a>
+  <div class="nav-scroller py-1">
+    <nav>
+      <a class="asdf" href="#">World</a>
+      <a href="#">World</a>
+      <a href="#">World</a>
     </nav>
   </div>
 
 
-
-
-  <div>
-    <div class="backgroundText"> <h2>Save earth, Save you</h2> </div>
-    <img class="img-fluid rounded" src="background.jpg" alt="배경">
-  </div>
+  
+  <section class="asdf">
+    
+    <img class="img-fluid rounded pb-2" src="background.jpg" alt="배경">
+    <div>
+      <div class="backgroundText"> <p>Save earth, Save you</p> </div>
+      <img class="earthIcon" src="internet_icon.png" alt="아이콘">
+    </div>
+    
+  </section>
 
   <div class="row mb-2">
     <div class="col-md-6">

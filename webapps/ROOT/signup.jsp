@@ -6,16 +6,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Signin Template · Bootstrap v5.0</title>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- Bootstrap core CSS -->
+    <title>Envir_Astro</title>
+    <script src="jquery-3.5.1.min.js" type="text/javascript"></script>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <link href="/css/background.css" rel="stylesheet">
     <link href="/css/signin.css" rel="stylesheet">
-
   </head>
   <body class="text-center">
- 
  
  
 
