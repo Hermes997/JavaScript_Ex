@@ -14,47 +14,18 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/background.css" rel="stylesheet">
-    <style>
-      section {
-        position: relative;
-      }
-
-      div.backgroundText {
-        position: absolute;
-        z-index:1;
-        top:25%;
-        left:50%;
-        font-size:2vw;
-        transform: translate(-50%);
-        font-style: italic;
-        color: white;
-      } 
-
-      .asdf {
-        background-color :"#112DBA";
-      }
-
-      .asdf:hover .earthIcon{
-        display: block;
-      }
-
-
-      .earthIcon {
-        position: absolute;
-        z-index:2;
-        top:50%;
-        left:50%;
-        transform: translate(-50%);
-        display: none;
-      }
-
-
-
-    </style>
+    <link href="/css/home.css" rel="stylesheet">
+    
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
+    <script src="jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="home.js"></script>
+
+
+
+
   </head>
   <body>
     <%
@@ -81,24 +52,19 @@
         PrintWriter script = response.getWriter();
     %>
 
-
 <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-1 pt-1">
-        <a class="text-muted" href="#"> English</a>
-
+        <a id = "lan1" href="#"> English</a>
       </div>
-
       <div class="col-1 pt-1">
-        <a class="text-muted" href="#"> Korean </a>
-
+        <a id = "lan2" href="#"> Korean </a>
       </div>
-
       <div class="col-1 pt-1">
-        <a class="text-muted" href="#"> Japanese </a>
-
+        <a id = "lan3" href="#"> Japanese </a>
       </div>
+
       <div class="col-6 text-center">
         <a class="blog-header-logo text-dark" href="#">Envir_Astro</a>
       </div>
@@ -108,58 +74,53 @@
             
             if(userID != null) {
         %>
-
-
         <%=
-              "<a class=\"btn btn-sm btn-outline-success\" href=\"#\"> " + userNickname + " </a>" +
-              "\n&emsp;&emsp;" + 
-              "<a class=\"btn btn-sm btn-outline-secondary\" href=\"logout_action.jsp\"> " + "Log out" + " </a>"
+              "<a class=\"btn btn-sm btn-outline-success\" id=\"userInfomation\" href=\"#\" style=\"margin: 5px\"> " + userNickname + " </a>" +
+              "<a class=\"btn btn-sm btn-outline-secondary\" id=\"logoutset\" href=\"logout_action.jsp\" style=\"margin: 5px\"> " + "Log out" + " </a>"
         %>
-
         <%
             } else {
 
         %>
+        <%=   
+              "<a class=\"btn btn-sm btn-outline-primary\" id=\"signin\" href=\"signin.jsp\" style=\"margin: 5px\"> Sign in </a>" + 
+              "\n<a class=\"btn btn-sm btn-outline-secondary\" id=\"signup\" href=\"signup.jsp\" style=\"margin: 5px\"> Sign up </a>"
 
-        <%=
-              "<a class=\"btn btn-sm btn-outline-primary\" href=\"signin.jsp\"> Sign in </a>" + 
-              "\n&emsp;&emsp;" + 
-              "\n<a class=\"btn btn-sm btn-outline-secondary\" href=\"signup.jsp\"> Sign up </a>"
         %>
-
         <%
             }
           } catch(Exception e) {
             e.printStackTrace();
           }
 
-
         %>
 
-        
-        
-        
       </div>
     </div>
   </header>
 
 
   <div class="nav-scroller py-1">
-    <nav>
-      <a class="asdf" href="#">World</a>
-      <a href="#">World</a>
-      <a href="#">World</a>
+    <nav class="text-center">
+      <a class="col-4" href="#">World</a>
+      <a class="col-4" href="#">Environment</a>
+      <a class="col-4" href="#">Astronomy</a>
     </nav>
   </div>
 
 
   
-  <section class="asdf">
+  <section class="mainArea">
     
     <img class="img-fluid rounded pb-2" src="background.jpg" alt="배경">
     <div>
       <div class="backgroundText"> <p>Save earth, Save you</p> </div>
-      <img class="earthIcon" src="internet_icon.png" alt="아이콘">
+      <a href="#"><img class="earthIcon1" src="premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon2" src="premium-icon-sculptor-3982225.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon3" src="premium-icon-crux-3982223.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon4" src="premium-icon-vela-3982224.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon5" src="premium-icon-cassiopeia-3981982.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon6" src="free-icon-big-dipper-3981967.png" alt="아이콘"></a>
     </div>
     
   </section>
@@ -273,8 +234,7 @@
     <aside class="col-md-4 blog-sidebar">
       <div class="p-4 mb-3 bg-light rounded">
         <h4 class="font-italic">About</h4>
-        <p class="mb-0">Saw you downtown singing the Blues. Watch you circle the drain. Why don't you let me stop by? Heavy is the head that <em>wears the crown</em>. Yes, we make angels cry, raining down on earth from up above.</p>
-      </div>
+       </div>
 
       <div class="p-4">
         <h4 class="font-italic">Archives</h4>
@@ -318,4 +278,5 @@
 
     
   </body>
+  <script type="text/javascript" src="home.js"></script>
 </html>
