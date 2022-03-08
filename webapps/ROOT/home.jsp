@@ -34,6 +34,7 @@
         ResultSet rs = null; // SQL구문의 실행결과를 저장
         PreparedStatement pst = null;
 
+      
         Class.forName("org.mariadb.jdbc.Driver");
         try { 
         String dbURL = "jdbc:mariadb://218.158.10.116:3306/mysql"; 
@@ -103,7 +104,7 @@
   <div class="nav-scroller py-1">
     <nav class="text-center">
       <a class="col-4" href="#">World</a>
-      <a class="col-4" href="#">Environment</a>
+      <a class="col-4" href="environment.jsp">Environment</a>
       <a class="col-4" href="#">Astronomy</a>
     </nav>
   </div>
@@ -112,7 +113,7 @@
   
   <section class="mainArea">
     
-    <img class="img-fluid rounded pb-2" src="background.jpg" alt="배경">
+    <img class="img-fluid rounded pb-2" style="opacity:0.9;" src="background.jpg" alt="배경">
     <div>
       <div class="backgroundText"> <p>Save earth, Save you</p> </div>
       <a href="#"><img class="earthIcon1" src="premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
