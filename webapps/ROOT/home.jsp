@@ -115,7 +115,7 @@
     
     <img class="img-fluid rounded pb-2" style="opacity:0.9;" src="background.jpg" alt="배경">
     <div>
-      <div class="backgroundText"> <p>Save earth, Save you</p> </div>
+      <div class="backgroundText"> <p>Make your world</p> </div>
       <a href="#"><img class="earthIcon1" src="premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
       <a href="#"><img class="earthIcon2" src="premium-icon-sculptor-3982225.png" alt="아이콘"></a>
       <a href="#"><img class="earthIcon3" src="premium-icon-crux-3982223.png" alt="아이콘"></a>

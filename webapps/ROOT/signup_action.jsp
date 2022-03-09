@@ -98,16 +98,18 @@
         pst.setString(3, userNickname);
         pst.setString(4, userDate);
         pst.executeUpdate();
-      } catch (Exception e) {
-            e.printStackTrace();
-      } finally {
+
         if(pst != null) try { pst.close(); } catch(SQLException ex) {}
         if(con != null) try { con.close(); } catch(SQLException ex) {}
         script.println("<script>");
         script.println("alert('회원가입을 환영합니다.')");
         script.println("location.href = 'home.jsp'");
         script.println("</script>");
-        }
+        
+      } catch (Exception e) {
+            e.printStackTrace();
+      }
+
   }
  
 %>

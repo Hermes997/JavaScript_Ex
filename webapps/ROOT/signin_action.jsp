@@ -56,8 +56,8 @@
         }
 
     } catch (Exception e) {
-        e.printStackTrace();
         result = -2;
+        e.printStackTrace();
     } finally {
         if(pst != null) try { pst.close(); out.println("pst close clear");} catch(SQLException ex) {}
         if(con != null) try { con.close(); out.println("con close clear");} catch(SQLException ex) {}
@@ -74,8 +74,8 @@
 
             case -1 :
                 script.println("<script>");
-                script.println("alert('해당 아이디는 없는 아이디입니다..')");
-                script.println("history.back()'");
+                script.println("alert('해당 아이디는 없는 아이디입니다.')");
+                script.println("history.back()");
                 script.println("</script>");
                 break;
             
