@@ -45,6 +45,9 @@
         String userNickname = (String) session.getAttribute("userNickname");
         String userDate = (String) session.getAttribute("userDate");
         PrintWriter script = response.getWriter();
+        int imageCount = 0;
+        String uploadedImage = null;
+        String [] uploadedImageList = null;
     %>
 
 <div class="container">
@@ -130,7 +133,7 @@
     <tbody>
     <%
     try {
-      String query = "select postID, userNickname, title, uploadDate, imageDir from post";
+      String query = "SELECT * FROM post ORDER BY postID DESC";
 
       stmt = con.createStatement();
 
@@ -141,7 +144,24 @@
       while(rs.next()) {
       %>
       <tr>
-          <td></td>
+          <td><img src=
+          <%
+          imageCount = rs.getInt("imageCount");
+          if(imageCount > 0) {
+            uploadedImage = rs.getString("imageNames");
+            uploadedImageList = uploadedImage.split("\\*");
+          }
+          
+          %>
+          <%
+          if(imageCount > 0) {
+            out.println("\"" + rs.getString("imageDir") + "/" + uploadedImageList[imageCount - 1] + "\"");
+          } else {
+            out.println("\"" + "\"");
+          }
+
+          %>
+           class="img-thumbnail" width="50" height="50" alt="..."></td>
           <td><%= rs.getString("postID") %></td>
           <td><%= rs.getString("userNickname") %></td>
           <td><%= rs.getString("title") %></td>
