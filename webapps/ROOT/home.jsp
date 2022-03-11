@@ -51,6 +51,9 @@
         String userNickname = (String) session.getAttribute("userNickname");
         String userDate = (String) session.getAttribute("userDate");
         PrintWriter script = response.getWriter();
+        int imageCount = 0;
+        String uploadedImage = null;
+        String [] uploadedImageList = null;
     %>
 
 <div class="container">
@@ -76,8 +79,8 @@
             if(userID != null) {
         %>
         <%=
-              "<a class=\"btn btn-sm btn-outline-success\" id=\"userInfomation\" href=\"#\" style=\"margin: 5px\"> " + userNickname + " </a>" +
-              "<a class=\"btn btn-sm btn-outline-secondary\" id=\"logoutset\" href=\"logout_action.jsp\" style=\"margin: 5px\"> " + "Log out" + " </a>"
+              "<a class=\"btn btn-sm btn-outline-success\" id=\"userInformation\" href=\"#\" style=\"margin: 5px\"> " + userNickname + " </a>" +
+              "\n<a class=\"btn btn-sm btn-outline-secondary\" id=\"logoutset\" href=\"logout_action.jsp\" style=\"margin: 5px\"> " + "Log out" + " </a>"
         %>
         <%
             } else {
@@ -130,14 +133,38 @@
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
+          <strong class="d-inline-block mb-2 text-primary">Environment</strong>
+          <%
+          String query = "SELECT * FROM post ORDER BY postID DESC LIMIT 1";
+          stmt = con.createStatement();
+          rs = stmt.executeQuery(query);
+          rs.next();
+          imageCount = rs.getInt("imageCount");
+          if(imageCount > 0) {
+            uploadedImage = rs.getString("imageNames");
+            uploadedImageList = uploadedImage.split("\\*");
+          }
+          
+          %>
+          <h3 class="mb-0"><%= rs.getString("title") %></h3>
+          <div class="mb-1 text-muted"><%= rs.getString("uploadDate") %></div>
+          <p class="card-text mb-auto"><%= rs.getString("contents") %></p>
+          <a href="#" class="stretched-link"><%= rs.getString("userNickname") %></a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <img class="bd-placeholder-img" src=
+          
+
+          <%
+          if(imageCount > 0) {
+            out.println("\"" + rs.getString("imageDir") + "/" + uploadedImageList[imageCount - 1] + "\"");
+          } else {
+            out.println("\"" + "\"");
+          }
+
+          %>
+          
+           width="200" height="250" focusable="false">
 
         </div>
       </div>

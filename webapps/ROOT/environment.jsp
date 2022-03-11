@@ -134,12 +134,8 @@
     <%
     try {
       String query = "SELECT * FROM post ORDER BY postID DESC";
-
       stmt = con.createStatement();
-
-
       rs = stmt.executeQuery(query);
-
 
       while(rs.next()) {
       %>
