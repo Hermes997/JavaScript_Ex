@@ -18,6 +18,10 @@
     <!-- Custom styles for this template -->
     <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/home.js"></script>
+    
+
+
+
   </head>
   <body>
     <%
@@ -107,91 +111,34 @@
   <div class="row">
         <h2 class="col-8 mt-5 mb-3">Environment</h2>
         <div class="col-4 mt-5">
-        <div class="row">
-        <div class="col-12 d-flex justify-content-end">
-        <a class="btn btn-sm btn-outline-primary" id="makepost" href="makepost.jsp" style="margin: 5px"> New </a>
-        </div>
-        </div>
-        </div>
-  </div>
 
+        </div>
+        <%
+        String query = "SELECT * FROM post WHERE postID=" + request.getParameter("postID") + " LIMIT 1";
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(query);
+        rs.next();
+        imageCount = rs.getInt("imageCount");
+        if(imageCount > 0) {
+          uploadedImage = rs.getString("imageNames");
+          uploadedImageList = uploadedImage.split("\\*");
+        }
+        
 
-<div class="table-responsive">
-  <table class="table table-striped table-sm">
-    <thead>
-      <tr>
-        <th>Picture</th>
-        <th>PostID</th>
-        <th>Nickname</th>
-        <th>Title</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-    <%
-    try {
-      String query = "SELECT * FROM post ORDER BY postID DESC";
-      stmt = con.createStatement();
-      rs = stmt.executeQuery(query);
-
-      while(rs.next()) {
-      %>
-      <tr>
-          <td><img src=
-          <%
-          imageCount = rs.getInt("imageCount");
-          if(imageCount > 0) {
-            uploadedImage = rs.getString("imageNames");
-            uploadedImageList = uploadedImage.split("\\*");
-          }
-          
-          %>
+        %>
+        <h3 class="col-12"><%= rs.getString("title") %></h3>
           <%
           if(imageCount > 0) {
-            out.println("\"" + rs.getString("imageDir") + "/" + uploadedImageList[imageCount - 1] + "\"");
+            for(int i=imageCount; i>0; i--){
+              out.println("<img class='bd-placeholder-img' src='" + rs.getString("imageDir") + "/" + uploadedImageList[i - 1] + "'" + " width='500' height='300' focusable='false'>");
+            }
           } else {
-            out.println("\"" + "\"");
           }
-
           %>
-           class="img-thumbnail" width="50" height="50" alt="..."></td>
-          <td><%= rs.getString("postID") %></td>
-          <td><%= rs.getString("userNickname") %></td>
-          <td><% out.print("<a href='contents.jsp?postID=" + rs.getString("postID") + "'>" + rs.getString("title") + "</a>"); %></td>
-          <td><%= rs.getString("uploadDate") %></td>
-      </tr>
-      <%
-      }
-    }catch(SQLException ex){
-          out.println(ex.getMessage());
-          ex.printStackTrace();
-    }finally{
-          if(rs != null) try { rs.close(); } catch(SQLException ex) {}
-          if(stmt != null) try { stmt.close(); } catch(SQLException ex) {}
-          if(con != null) try { con.close(); } catch(SQLException ex) {}
-    }
-%>
-
-
-    </tbody>
-  </table>
+          
+          >
+        <h5 class="col-12"><%= rs.getString("contents") %></h5> 
+  </div>
 </div>
-
-
-</div>
-
-
-
-
-<footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-
-
-    
-  </body>
-
+</body>
 </html>

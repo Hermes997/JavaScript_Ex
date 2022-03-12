@@ -6,8 +6,8 @@
 <html>
 <head>
 <title>Envir_Astro</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/background.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
 </head>
 <body>
 <%

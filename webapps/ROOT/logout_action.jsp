@@ -7,8 +7,8 @@
 <html lang="ko">
 <head>
     <meta name="generator" content="Hugo 0.79.0">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/background.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
 <title> Envir-Astro </title>
 </head>
 <body>

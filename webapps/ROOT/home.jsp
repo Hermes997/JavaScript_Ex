@@ -12,16 +12,16 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>Envir_Astro</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/background.css" rel="stylesheet">
-    <link href="/css/home.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
-    <script src="jquery-3.5.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="home.js"></script>
+    <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/home.js"></script>
 
 
 
@@ -70,7 +70,7 @@
       </div>
 
       <div class="col-6 text-center">
-        <a class="blog-header-logo text-dark" href="#">Envir_Astro</a>
+        <a class="blog-header-logo text-dark" href="home.jsp">Envir_Astro</a>
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center">
         <%
@@ -116,15 +116,15 @@
   
   <section class="mainArea">
     
-    <img class="img-fluid rounded pb-2" style="opacity:0.9;" src="background.jpg" alt="배경">
+    <img class="img-fluid rounded pb-2" style="opacity:0.9;" src="designimage/background.jpg" alt="배경">
     <div>
       <div class="backgroundText"> <p>Make your world</p> </div>
-      <a href="#"><img class="earthIcon1" src="premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
-      <a href="#"><img class="earthIcon2" src="premium-icon-sculptor-3982225.png" alt="아이콘"></a>
-      <a href="#"><img class="earthIcon3" src="premium-icon-crux-3982223.png" alt="아이콘"></a>
-      <a href="#"><img class="earthIcon4" src="premium-icon-vela-3982224.png" alt="아이콘"></a>
-      <a href="#"><img class="earthIcon5" src="premium-icon-cassiopeia-3981982.png" alt="아이콘"></a>
-      <a href="#"><img class="earthIcon6" src="free-icon-big-dipper-3981967.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon1" src="designimage/premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon2" src="designimage/premium-icon-sculptor-3982225.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon3" src="designimage/premium-icon-crux-3982223.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon4" src="designimage/premium-icon-vela-3982224.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon5" src="designimage/premium-icon-cassiopeia-3981982.png" alt="아이콘"></a>
+      <a href="#"><img class="earthIcon6" src="designimage/free-icon-big-dipper-3981967.png" alt="아이콘"></a>
     </div>
     
   </section>

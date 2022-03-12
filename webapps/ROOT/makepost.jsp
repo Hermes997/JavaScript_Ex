@@ -12,14 +12,14 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>Envir_Astro</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/background.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
     <link href="css/blog.css" rel="stylesheet">
     <link href="css/makepost.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <script src="jquery-3.5.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="home.js"></script>
-    <script type="text/javascript" src="makepost.js"></script>
+    <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="js/makepost.js"></script>
     
   </head>
 
