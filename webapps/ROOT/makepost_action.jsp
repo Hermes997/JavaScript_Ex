@@ -5,8 +5,6 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.File"%>
 <%@ page import="java.util.Enumeration"%>
-<%@ page import="javax.servlet.http.HttpServletRequest"%>
-<%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="org.apache.commons.fileupload.FileItem"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
@@ -118,7 +116,7 @@
 
         script.println("<script>");
         script.println("alert('게시물 업로드 완료.')");
-        script.println("location.href = 'environment.jsp'");
+        script.println("location.href = 'post.jsp'");
         script.println("</script>");
       /*} catch(Exception e){
         script.println("<script>");

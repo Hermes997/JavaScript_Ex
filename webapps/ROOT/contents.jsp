@@ -102,7 +102,7 @@
   <div class="nav-scroller py-1">
     <nav class="text-center">
       <a class="col-4" href="#">World</a>
-      <a class="col-4" href="environment.jsp">Environment</a>
+      <a class="col-4" href="post.jsp">Environment</a>
       <a class="col-4" href="#">Astronomy</a>
     </nav>
   </div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.*"%>
+<%@ page import="DataJava.DBconnect" %>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <html lang="en">
@@ -29,28 +30,19 @@
   </head>
   <body>
     <%
-        Connection con = null; // DBMS와 Java연결객체
-        Statement stmt = null; // SQL구문을 실행
-        ResultSet rs = null; // SQL구문의 실행결과를 저장
+        DBconnect dbcon = new DBconnect();
+        Connection con = dbcon.getConnection();
+        Statement stmt = null;
         PreparedStatement pst = null;
-
-      
-        Class.forName("org.mariadb.jdbc.Driver");
-        try { 
-        String dbURL = "jdbc:mariadb://218.158.10.116:3306/mysql"; 
-        String dbID = "cus"; 
-        String dbPassword = "password"; 
-
-        con = DriverManager.getConnection(dbURL, dbID, dbPassword);
-        } catch (Exception e) { 
-            e.printStackTrace();
-        }
+        ResultSet rs = null;
 
         String userID = (String) session.getAttribute("userID");
         String userPassword = (String) session.getAttribute("userPassword");
         String userNickname = (String) session.getAttribute("userNickname");
         String userDate = (String) session.getAttribute("userDate");
+
         PrintWriter script = response.getWriter();
+        
         int imageCount = 0;
         String uploadedImage = null;
         String [] uploadedImageList = null;
@@ -106,8 +98,8 @@
 
   <div class="nav-scroller py-1">
     <nav class="text-center">
-      <a class="col-4" href="#">World</a>
-      <a class="col-4" href="environment.jsp">Environment</a>
+      <a class="col-4" href="https://github.com/Hermes997/JavaScript_Ex">Github</a>
+      <a class="col-4" href="post.jsp">Environment</a>
       <a class="col-4" href="#">Astronomy</a>
     </nav>
   </div>
