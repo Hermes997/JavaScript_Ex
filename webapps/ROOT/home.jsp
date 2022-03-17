@@ -62,7 +62,7 @@
       </div>
 
       <div class="col-6 text-center">
-        <a class="blog-header-logo text-dark" href="home.jsp">Envir_Astro</a>
+        <a class="blog-header-logo text-dark" href="main">Envir_Astro</a>
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center">
         <%
@@ -79,8 +79,8 @@
 
         %>
         <%=   
-              "<a class=\"btn btn-sm btn-outline-primary\" id=\"signin\" href=\"signin.jsp\" style=\"margin: 5px\"> Sign in </a>" + 
-              "\n<a class=\"btn btn-sm btn-outline-secondary\" id=\"signup\" href=\"signup.jsp\" style=\"margin: 5px\"> Sign up </a>"
+              "<a class=\"btn btn-sm btn-outline-primary\" id=\"signin\" href=\"check\" style=\"margin: 5px\"> Sign in </a>" + 
+              "\n<a class=\"btn btn-sm btn-outline-secondary\" id=\"signup\" href=\"welcome\" style=\"margin: 5px\"> Sign up </a>"
 
         %>
         <%
@@ -99,7 +99,7 @@
   <div class="nav-scroller py-1">
     <nav class="text-center">
       <a class="col-4" href="https://github.com/Hermes997/JavaScript_Ex">Github</a>
-      <a class="col-4" href="post.jsp">Environment</a>
+      <a class="col-4" href="list">Environment</a>
       <a class="col-4" href="#">Astronomy</a>
     </nav>
   </div>

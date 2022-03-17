@@ -70,7 +70,7 @@
 
       PrintWriter script = response.getWriter();
       String sql = null;
-      //try{
+      try{
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(DiskmaxSize);
@@ -116,15 +116,15 @@
 
         script.println("<script>");
         script.println("alert('게시물 업로드 완료.')");
-        script.println("location.href = 'post.jsp'");
+        script.println("location.href = 'main'");
         script.println("</script>");
-      /*} catch(Exception e){
+      } catch(Exception e){
         script.println("<script>");
         script.println("alert('파일처리간 문제 발생.')");
-        script.println("location.href = 'environment.jsp'");
+        script.println("location.href = 'list'");
         script.println("</script>");
         out.println(userID + title + contents + userNickname + strDate3 + imageCount + realFolder);
-      }*/
+      }
        %>
     </body>
 

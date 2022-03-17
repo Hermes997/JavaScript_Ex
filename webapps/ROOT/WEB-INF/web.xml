@@ -5,25 +5,123 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
   version="3.1"
-  metadata-complete="false">
+  metadata-complete="true">
+
 
     <servlet>   
-        <servlet-name>SetServlet</servlet-name>
+        <servlet-name>SetServlet1</servlet-name>
         <jsp-file>/home.jsp</jsp-file>
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>SetServlet</servlet-name>
-        <url-pattern>/board</url-pattern>
+        <servlet-name>SetServlet1</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet2</servlet-name>
+        <jsp-file>/contents.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet2</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet3</servlet-name>
+        <jsp-file>/makepost.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet3</servlet-name>
+        <url-pattern>/fill</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet4</servlet-name>
+        <jsp-file>/post.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet4</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet5</servlet-name>
+        <jsp-file>/signin.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet5</servlet-name>
+        <url-pattern>/check</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>   
+        <servlet-name>SetServlet6</servlet-name>
+        <jsp-file>/signup.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet6</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet7</servlet-name>
+        <jsp-file>/signin_action.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet7</servlet-name>
+        <url-pattern>/ps-check</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet8</servlet-name>
+        <jsp-file>/signup_action.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet8</servlet-name>
+        <url-pattern>/ps-welcome</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet9</servlet-name>
+        <jsp-file>/logout_action.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet9</servlet-name>
+        <url-pattern>/ps-checkout</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>   
+        <servlet-name>SetServlet10</servlet-name>
+        <jsp-file>/makepost_action.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SetServlet10</servlet-name>
+        <url-pattern>/ps-fill</url-pattern>
+    </servlet-mapping>
     
 
 
     <welcome-file-list>
-        <welcome-file>home.jsp</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>main</welcome-file>
+
     </welcome-file-list>
 
 </web-app>

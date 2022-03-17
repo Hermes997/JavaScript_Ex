@@ -22,7 +22,7 @@
 
     script.println("<script>");
     script.println("alert('로그아웃 완료.')");
-    script.println("location.href = 'home.jsp'");
+    script.println("location.href = 'main'");
     script.println("</script>");
 
  

@@ -94,7 +94,7 @@
                 session.setAttribute("userDate", userDate);
                 script.println("<script>");
                 script.println("alert('로그인 성공.')");
-                script.println("location.href = 'home.jsp'");
+                script.println("location.href = 'main'");
                 script.println("</script>");
                 break;               
         }

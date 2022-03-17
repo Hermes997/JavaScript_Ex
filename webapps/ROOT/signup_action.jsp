@@ -103,7 +103,7 @@
         if(con != null) try { con.close(); } catch(SQLException ex) {}
         script.println("<script>");
         script.println("alert('회원가입을 환영합니다.')");
-        script.println("location.href = 'home.jsp'");
+        script.println("location.href = 'main'");
         script.println("</script>");
         
       } catch (Exception e) {

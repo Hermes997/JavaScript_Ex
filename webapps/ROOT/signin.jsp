@@ -18,7 +18,7 @@
 
 <main class="form-signin">
     <div>
-      <form action="signin_action.jsp">
+      <form action="ps-check">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
         <input type="email" id="userID" name="userID" class="form-control" placeholder="Email address" required autofocus>
@@ -31,9 +31,9 @@
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <p></p>
-        <button class="w-100 btn btn-lg btn-secondary" type="submit" onclick="window.location.href='signup.jsp'">Sign up</button>
+        <button class="w-100 btn btn-lg btn-secondary" type="submit" onclick="window.location.href='welcome'">Sign up</button>
         <p></p>
-        <button class="w-100 btn btn-lg btn-info" type="submit" onclick="window.location.href='home.jsp'">Back to Home</button>
+        <button class="w-100 btn btn-lg btn-info" type="submit" onclick="window.location.href='main'">Back to Home</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
       </form>
     </div>
