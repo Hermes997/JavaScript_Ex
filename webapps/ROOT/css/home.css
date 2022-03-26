@@ -50,7 +50,7 @@ div.backgroundText {
     left:15%;
     transform: translate(-50%);
     opacity: 0;
-    transition: opacity 1s 3s linear;
+    transition: opacity 0.3s 0.2s linear;
 }
 
 .earthIcon2 {
@@ -62,7 +62,7 @@ div.backgroundText {
     left:30%;
     transform: translate(-50%);
     opacity: 0;
-    transition: opacity 1s 4s linear;
+    transition: opacity 0.3s 0.1s linear;
 }
 
 .earthIcon3 {

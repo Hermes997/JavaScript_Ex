@@ -18,7 +18,7 @@
     <link href="css/home.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
+    
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
     <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>

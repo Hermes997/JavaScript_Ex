@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.*"%>
+<%@ page import="DataJava.DBconnect" %>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <html>
@@ -12,23 +13,11 @@
 <body>
 <%
 
-    Connection con = null; // DBMS와 Java연결객체
-    Statement stmt = null; // SQL구문을 실행
-    ResultSet rs = null; // SQL구문의 실행결과를 저장
+    DBconnect dbcon = new DBconnect();
+    Connection con = dbcon.getConnection();
+    Statement stmt = null;
     PreparedStatement pst = null;
-    out.println("connect clear0");
-    Class.forName("org.mariadb.jdbc.Driver");
-    try { 
-    out.println("connect clear1");
-    String dbURL = "jdbc:mariadb://218.158.10.116:3306/mysql"; 
-    String dbID = "cus"; 
-    String dbPassword = "password"; 
-
-    con = DriverManager.getConnection(dbURL, dbID, dbPassword);
-    out.println("connect clear2");
-    } catch (Exception e) { 
-        e.printStackTrace();
-    }
+    ResultSet rs = null;
 
     String userID = request.getParameter("userID");
     String userPassword = request.getParameter("userPassword");

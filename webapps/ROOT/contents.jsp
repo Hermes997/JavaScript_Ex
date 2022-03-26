@@ -19,7 +19,7 @@
     <!-- Custom styles for this template -->
     <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/home.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 
@@ -36,6 +36,9 @@
       String userPassword = (String) session.getAttribute("userPassword");
       String userNickname = (String) session.getAttribute("userNickname");
       String userDate = (String) session.getAttribute("userDate");
+      String postID = request.getParameter("postID");
+      session.setAttribute("postID", postID);
+
       PrintWriter script = response.getWriter();
       int imageCount = 0;
       String uploadedImage = null;
@@ -104,6 +107,7 @@
         <div class="col-4 mt-5">
 
         </div>
+        
         <%
         String query = "SELECT * FROM post WHERE postID=" + request.getParameter("postID") + " LIMIT 1";
         stmt = con.createStatement();
@@ -118,18 +122,112 @@
 
         %>
         <h3 class="col-12"><%= rs.getString("title") %></h3>
-          <%
-          if(imageCount > 0) {
-            for(int i=imageCount; i>0; i--){
-              out.println("<img class='bd-placeholder-img' src='" + rs.getString("imageDir") + "/" + uploadedImageList[i - 1] + "'" + " width='500' height='300' focusable='false'>");
-            }
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+        <%
+      
+        if(imageCount > 0) {
+        for(int i=imageCount; i>0; i--){
+          if(i==imageCount) {
+            out.println("<div class='carousel-item active'>");
           } else {
+            out.println("<div class='carousel-item'>");
+          }
+          
+          out.println("<img src='" + rs.getString("imageDir") + "/" + uploadedImageList[i - 1] + "'" + " class='d-block w-100'" + " alt='slide" + String.valueOf(i) + "'>");
+          out.println("</div>");
+        }
+        } else {
+        }
+        %>
+        </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <h5 class="col-12"><%= rs.getString("contents") %></h5> 
+        <div class="col-12">
+          <form action="comments_action.jsp" method="post">   
+            <div class="container">
+            <div class="row">
+                  <h2 class="col-8 mt-5 mb-3">Comments</h2>
+                  <div class="col-4 mt-5">
+                  <div class="row">
+                  <div class="col-12 d-flex justify-content-end">
+                      <button class="btn btn-sm btn-outline-success" type="summit" style="margin: 5px"> Uploade </button>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+              
+            
+            <div class="row">
+              <div class="col-12 mt-5">
+                <div class="input-group">
+                <span class="input-group-text" id="makeComments">Contents</span>
+                <textarea class="form-control" id="makeCommnetsArea" name="commentContents" rows="3" style="width:100%;height:100%;" aria-label="With textarea"></textarea>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-12">
+          <div class="table-responsive">
+          <table class="table table-striped table-sm">
+
+          <%
+          try {
+            query = "SELECT * FROM comments where postID=" + postID + " ORDER BY commentsID";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+          
+            while(rs.next()) {
+            %>
+            <tr>
+                <td><%= rs.getInt("commentsID") %></td>
+                <td><%= rs.getString("userNickname") %></td>
+                <td><%= rs.getString("userID") %></td>
+                <td><%= rs.getString("contents") %></td>
+                <td><%= rs.getString("uploadDate") %></td>
+            </tr>
+            <%
+            }
+          }catch(SQLException ex){
+                out.println(ex.getMessage());
+                ex.printStackTrace();
+          }finally{
+                if(rs != null) try { rs.close(); } catch(SQLException ex) {}
+                if(stmt != null) try { stmt.close(); } catch(SQLException ex) {}
+                if(con != null) try { con.close(); } catch(SQLException ex) {}
           }
           %>
-          
-          >
-        <h5 class="col-12"><%= rs.getString("contents") %></h5> 
+        </div>
+        </div>
+        </div>
+
   </div>
+  </div>
+
+
+
+  
+
+
 </div>
+
+
+
 </body>
 </html>

@@ -8,6 +8,7 @@
 <%@ page import="org.apache.commons.fileupload.FileItem"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@ page import="DataJava.DBconnect" %>
 
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -19,21 +20,11 @@
 
     <body>
       <%
-      Connection con = null; // DBMS와 Java연결객체
-      Statement stmt = null; // SQL구문을 실행
-      ResultSet rs = null; // SQL구문의 실행결과를 저장
+      DBconnect dbcon = new DBconnect();
+      Connection con = dbcon.getConnection();
+      Statement stmt = null;
       PreparedStatement pst = null;
-    
-      Class.forName("org.mariadb.jdbc.Driver");
-      try { 
-      String dbURL = "jdbc:mariadb://218.158.10.116:3306/mysql"; 
-      String dbID = "cus"; 
-      String dbPassword = "password"; 
-    
-      con = DriverManager.getConnection(dbURL, dbID, dbPassword);
-      } catch (Exception e) { 
-          e.printStackTrace();
-      }
+      ResultSet rs = null;
     
       long miliseconds = System.currentTimeMillis();
       SimpleDateFormat dformat1 = new SimpleDateFormat("yyyyMMdd");
@@ -47,6 +38,7 @@
       String userPassword = (String) session.getAttribute("userPassword");
       String userNickname = (String) session.getAttribute("userNickname");
       String userDate = (String) session.getAttribute("userDate");
+
       String title = "";
       String contents = "";
       int imageCount = 0;
@@ -116,12 +108,12 @@
 
         script.println("<script>");
         script.println("alert('게시물 업로드 완료.')");
-        script.println("location.href = 'main'");
+        script.println("history.back()");
         script.println("</script>");
       } catch(Exception e){
         script.println("<script>");
         script.println("alert('파일처리간 문제 발생.')");
-        script.println("location.href = 'list'");
+        script.println("history.back()");
         script.println("</script>");
         out.println(userID + title + contents + userNickname + strDate3 + imageCount + realFolder);
       }
