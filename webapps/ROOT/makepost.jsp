@@ -63,7 +63,7 @@
       </div>
 
       <div class="col-6 text-center">
-        <a class="blog-header-logo text-dark" href="#">Envir_Astro</a>
+        <a class="blog-header-logo text-dark" href="main">Envir_Astro</a>
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center">
         

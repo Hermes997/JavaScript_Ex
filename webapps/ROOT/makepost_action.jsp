@@ -107,12 +107,12 @@
         if(con != null) try { con.close(); } catch(SQLException ex) {}
 
         script.println("<script>");
-        script.println("alert('게시물 업로드 완료.')");
+        script.println("alert('post complete')");
         script.println("history.back()");
         script.println("</script>");
       } catch(Exception e){
         script.println("<script>");
-        script.println("alert('파일처리간 문제 발생.')");
+        script.println("alert('fail to process fileupload ')");
         script.println("history.back()");
         script.println("</script>");
         out.println(userID + title + contents + userNickname + strDate3 + imageCount + realFolder);

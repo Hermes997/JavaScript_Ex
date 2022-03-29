@@ -56,21 +56,21 @@
         switch(result) {
             case -2 :
                 script.println("<script>");
-                script.println("alert('알수없는 오류.')");
+                script.println("alert('server error')");
                 script.println("history.back()");
                 script.println("</script>");
                 break;
 
             case -1 :
                 script.println("<script>");
-                script.println("alert('해당 아이디는 없는 아이디입니다.')");
+                script.println("alert('this ID is not exist')");
                 script.println("history.back()");
                 script.println("</script>");
                 break;
             
             case 0 :
                 script.println("<script>");
-                script.println("alert('비밀번호가 일치하지 않습니다.')");
+                script.println("alert('do not match between ID and password')");
                 script.println("history.back()");
                 script.println("</script>");
                 break;
@@ -82,7 +82,7 @@
                 session.setAttribute("userNickname", userNickname);
                 session.setAttribute("userDate", userDate);
                 script.println("<script>");
-                script.println("alert('로그인 성공.')");
+                script.println("alert('signin complete.')");
                 script.println("location.href = 'main'");
                 script.println("</script>");
                 break;               

@@ -52,7 +52,7 @@
         pst.executeUpdate();
 
         script.println("<script>");
-        script.println("alert('댓글 작성완료.')");
+        script.println("alert('posting comment complete.')");
         String location = "location.href = 'view?postID=" + postID + "'";
         script.println(location);
         script.println("</script>");

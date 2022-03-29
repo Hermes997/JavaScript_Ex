@@ -21,7 +21,7 @@
     PrintWriter script = response.getWriter();
 
     script.println("<script>");
-    script.println("alert('로그아웃 완료.')");
+    script.println("alert('logout complete.')");
     script.println("location.href = 'main'");
     script.println("</script>");
 

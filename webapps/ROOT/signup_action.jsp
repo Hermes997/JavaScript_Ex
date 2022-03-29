@@ -58,21 +58,21 @@
   switch(result) {
     case -2 :
       script.println("<script>");
-      script.println("alert('이 ID는 등록되어 있습니다.')");
+      script.println("alert('this ID is exist.')");
       script.println("history.back()");
       script.println("</script>");
       break;
 
     case -1 :
       script.println("<script>");
-      script.println("alert('다른 닉네임을 선택해 주세요')");
+      script.println("alert('please change nickname')");
       script.println("history.back()");
       script.println("</script>");
       break;
 
     case 0 :
       script.println("<script>");
-      script.println("alert('알수없는 오류.')");
+      script.println("alert('server error.')");
       script.println("history.back()");
       script.println("</script>");
       break;
@@ -94,7 +94,7 @@
         if(pst != null) try { pst.close(); } catch(SQLException ex) {}
         if(con != null) try { con.close(); } catch(SQLException ex) {}
         script.println("<script>");
-        script.println("alert('회원가입을 환영합니다.')");
+        script.println("alert('welcome')");
         script.println("location.href = 'main'");
         script.println("</script>");
         

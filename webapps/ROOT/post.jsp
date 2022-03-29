@@ -37,6 +37,19 @@
         int imageCount = 0;
         String uploadedImage = null;
         String [] uploadedImageList = null;
+        if(userID == null){
+          try {
+            
+              script.println("<script>");
+              script.println("alert('you need to signin')");
+              script.println("history.back()");
+              script.println("</script>");
+              
+            } catch (Exception e) {
+                  e.printStackTrace();
+            }
+        }
+
     %>
 
 <div class="container">

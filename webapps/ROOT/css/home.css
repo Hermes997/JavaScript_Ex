@@ -7,7 +7,7 @@ div.backgroundText {
     z-index:1;
     top:10%;
     left:50%;
-    font-size:2vw;
+    font-size:1vw;
     transform: translate(-50%);
     font-style: italic;
     color: white;

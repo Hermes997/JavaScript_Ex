@@ -110,7 +110,8 @@
     
     <img class="img-fluid rounded pb-2" style="opacity:0.9;" src="designimage/background.jpg" alt="배경">
     <div>
-      <div class="backgroundText"> <p>Make your world</p> </div>
+      <div class="backgroundText"> <p>Activated function is signup, signin, github-link, environment-tab, posting, commenting, picture upload
+       <br> if you want to signup in this site, please don't summit official account but common(ex:hello@joy)</p> </div>
       <a href="#"><img class="earthIcon1" src="designimage/premium-icon-camelopardalis-3981990.png" alt="아이콘"></a>
       <a href="#"><img class="earthIcon2" src="designimage/premium-icon-sculptor-3982225.png" alt="아이콘"></a>
       <a href="#"><img class="earthIcon3" src="designimage/premium-icon-crux-3982223.png" alt="아이콘"></a>
