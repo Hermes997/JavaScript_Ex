@@ -6,6 +6,7 @@ There are sourse of "jsp", "css", "js" in "webapps/ROOT"
 * upload file to server of rasberrypi
 * manipulate contents with sql
 * design in bootstrap and a little customized my css
+* set servlet and blind real path and file in WEB-INF/xml
 
 Defined table is
 
