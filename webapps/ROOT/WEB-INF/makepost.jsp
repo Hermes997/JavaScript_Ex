@@ -46,6 +46,19 @@
   String userNickname = (String) session.getAttribute("userNickname");
   String userDate = (String) session.getAttribute("userDate");
   PrintWriter script = response.getWriter();
+
+  if(userID == null){
+    try {
+      
+        script.println("<script>");
+        script.println("alert('you need to signin')");
+        script.println("history.back()");
+        script.println("</script>");
+        
+      } catch (Exception e) {
+            e.printStackTrace();
+      }
+  }
   %>
     
 
@@ -67,9 +80,6 @@
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center">
         
-        <%=
-          "<p name=\"userID\">" + userID + "</p>"
-        %>
         <%
           try {
             

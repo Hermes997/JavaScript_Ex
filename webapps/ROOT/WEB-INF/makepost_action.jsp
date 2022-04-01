@@ -39,6 +39,19 @@
       String userNickname = (String) session.getAttribute("userNickname");
       String userDate = (String) session.getAttribute("userDate");
 
+      if(userID == null){
+        try {
+          
+            script.println("<script>");
+            script.println("alert('you need to signin')");
+            script.println("history.back()");
+            script.println("</script>");
+            
+          } catch (Exception e) {
+                e.printStackTrace();
+          }
+      }
+
       String title = "";
       String contents = "";
       int imageCount = 0;
